@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
-import DeputyCard from './deputy_card'
+import DeputyRow from './deputy_row'
 
 export default function Deputies() {
   const [deputies, setDeputies] = useState([])
@@ -15,7 +15,7 @@ export default function Deputies() {
 
   const list = deputies.map(item => {
     return(
-      <DeputyCard
+      <DeputyRow
         key={item.id}
         deputy={item}
       />
@@ -23,14 +23,19 @@ export default function Deputies() {
   })
 
   return(
-    <div className="deputies container">
-      <div className="header">
-        <h1>Deputados</h1>
-        <div className="sub-header">Lista dos Deputados</div>
-      </div>
-      <div className="grid">
+    <table id="example" className="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Partido</th>
+          <th>Total de Gastos</th>
+        </tr>
+      </thead>
+      <tbody>
         {list}
-      </div>
-    </div>
+      </tbody>
+    </table>
   )
 }
