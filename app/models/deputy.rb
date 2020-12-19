@@ -3,9 +3,9 @@ class Deputy < ApplicationRecord
   validates :cpf, presence: true, uniqueness: true
   validates :registered_id, presence: true
 
-  has_many :invoices, class_name: 'Invoice'
+  has_many :invoices
 
   def sum_invoices_net_values
-    invoices.pluck('sum(net_value)').first
+    invoices.sum(:net_value).round(2).to_f
   end
 end
