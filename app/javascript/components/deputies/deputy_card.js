@@ -3,6 +3,8 @@ import { BroserRouter as Router, Link } from 'react-router-dom'
 
 export default function DeputyCard({ deputy }) {
   const deputyImageUrl = (registered_id) => {
+    console.log(registered_id)
+    if (registered_id === undefined) return ''
     return `http://www.camara.leg.br/internet/deputado/bandep/${registered_id}.jpg`
   }
 

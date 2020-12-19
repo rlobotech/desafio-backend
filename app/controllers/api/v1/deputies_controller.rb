@@ -1,18 +1,15 @@
 module Api
   module V1
-    class DeputiesController < ApplicationController
-      # before_action :authenticate, only: %i[create update destroy]
+    class DeputiesController < Api::V1::ApiController
       protect_from_forgery with: :null_session
 
       # GET /api/v1/deputies
       def index
-        # render json: serializer(deputies, options)
         render json: deputies
       end
       
-      # GET /api/v1/deputies/:slug
+      # GET /api/v1/deputies/:id
       def show
-        # render json: serializer(deputy, options)
         render json: deputy
       end
 
@@ -21,26 +18,22 @@ module Api
         deputy = Deputy.new(allowed_list_params)
 
         if deputy.save
-          # render json: serializer(deputy)
           render json: deputy
         else
           render json: errors(deputy), status: 422
         end
       end
 
-      # PATCH /api/v1/deputies/:slug
+      # PATCH /api/v1/deputies/:id
       def update
-        # deputy = Airline.find(params[:id])
-
         if deputy.update(allowed_list_params)
-          # render json: serializer(deputy, options)
           render json: deputy
         else
           render json: errors(deputy), status: 422
         end
       end
 
-      # DELETE /api/v1/deputies/:slug
+      # DELETE /api/v1/deputies/:id
       def destroy
         if deputy.destroy
           head :no_content
@@ -50,11 +43,6 @@ module Api
       end
 
       private
-
-      # Used For compound documents with fast_jsonapi
-      # def options
-      #   @options ||= { include: %i[reviews] }
-      # end
 
       # Get all deputies
       def deputies
@@ -73,13 +61,6 @@ module Api
       def allowed_list_params
           params.require(:deputy).permit(allowed_list)
       end
-
-      # # fast_jsonapi serializer
-      # def serializer(records, options = {})
-      #   AirlineSerializer
-      #     .new(records, options)
-      #     .serialized_json
-      # end
 
       # Errors
       def errors(record)

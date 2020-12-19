@@ -11,7 +11,7 @@ export default function Deputies() {
       setDeputies(resp.data)
     })
     .catch(resp => console.log(resp))
-  }, [deputies.length])
+  }, [])
 
   const list = deputies.map(item => {
     return(
