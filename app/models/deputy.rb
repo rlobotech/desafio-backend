@@ -6,6 +6,8 @@ class Deputy < ApplicationRecord
   has_many :invoices
 
   def sum_invoices_net_values
+    return 0 unless invoices.count.positive?
+
     invoices.sum(:net_value).round(2).to_f
   end
 end
