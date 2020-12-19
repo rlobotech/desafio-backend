@@ -1,0 +1,36 @@
+<h1>Editar Deputado</h1>
+
+<%= form_for :deputy, url: deputy_path(@deputy), method: :patch do |f| %>
+    <% if @deputy.errors.any? %>
+        <% @deputy.errors.full_messages.each do |msg| %>
+            <div class='alert alert-danger'><%= msg %></div>
+        <% end %>
+    <% end %>
+    <p>
+        <label>Nome Completo</label>
+        <br>
+        <%= f.text_field(:full_name, { :class => 'form-control' }) %>
+    </p>
+
+    <p>
+        <label>CPF</label>
+        <br>
+        <%= f.text_field(:cpf, { :class => 'form-control' }) %>
+    </p>
+
+    <p>
+        <label>Partido Político</label>
+        <br>
+        <%= f.text_field(:political_party, { :class => 'form-control' }) %>
+    </p>
+
+    <p>
+        <label>ID de Cadastro</label>
+        <br>
+        <%= f.text_field(:registered_id, { :class => 'form-control' }) %>
+    </p>
+
+    <p>
+        <%= f.submit({ :value => 'Cadastrar Deputado',:class => 'btn btn-primary' }) %>
+    </p>
+<% end %>
