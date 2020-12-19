@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_021842) do
+ActiveRecord::Schema.define(version: 2020_12_19_035031) do
 
   create_table "deputies", force: :cascade do |t|
     t.string "full_name"
@@ -22,4 +22,19 @@ ActiveRecord::Schema.define(version: 2020_12_19_021842) do
     t.index ["cpf"], name: "index_deputies_on_cpf"
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.string "description"
+    t.string "provider"
+    t.string "provider_cnpj"
+    t.datetime "issue_date"
+    t.float "net_value"
+    t.string "document_id"
+    t.string "document_url"
+    t.integer "deputy_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deputy_id"], name: "index_invoices_on_deputy_id"
+  end
+
+  add_foreign_key "invoices", "deputies"
 end
