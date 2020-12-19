@@ -1,0 +1,32 @@
+<h1>Editar Deputado</h1>
+
+<%= form_for :deputado, url: deputado_path(@deputado), method: :patch do |f| %>
+    <% if @deputado.errors.any? %>
+        <% @deputado.errors.full_messages.each do |msg| %>
+            <div class='alert alert-danger'><%= msg %></div>
+        <% end %>
+    <% end %>
+    <p>
+        <%= f.label :nome %><br>
+        <%= f.text_field(:nome, {:class => 'form-control'}) %>
+    </p>
+
+    <p>
+        <%= f.label :cpf %><br>
+        <%= f.text_field(:cpf, {:class => 'form-control'}) %>
+    </p>
+
+    <p>
+        <%= f.label :partido %><br>
+        <%= f.text_field(:partido, {:class => 'form-control'}) %>
+    </p>
+
+    <p>
+        <%= f.label :id_cadastro %><br>
+        <%= f.text_field(:id_cadastro, {:class => 'form-control'}) %>
+    </p>
+
+    <p>
+        <%= f.submit({:class => 'btn btn-primary'}) %>
+    </p>
+<% end %>
