@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_12_19_021842) do
 
-  create_table "deputados", force: :cascade do |t|
-    t.string "nome"
-    t.string "cpf"
-    t.string "partido"
-    t.integer "id_cadastro"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "deputies", force: :cascade do |t|
     t.string "full_name"
     t.string "cpf"
