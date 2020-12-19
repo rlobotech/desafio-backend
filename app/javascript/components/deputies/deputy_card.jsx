@@ -1,5 +1,6 @@
 import React from 'react'
 import { BroserRouter as Router, Link } from 'react-router-dom'
+import '../../../assets/stylesheets/deputies/deputy_row.css'
 
 export default function DeputyCard({ deputy }) {
   const deputyImageUrl = (registered_id) => {

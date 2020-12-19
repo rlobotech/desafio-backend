@@ -9,11 +9,17 @@ export default function DeputyRow({ deputy }) {
 
   return(
     <tr>
-      <td><img src={deputyImageUrl(deputy.registered_id)} alt={deputy.full_name}/></td>
-      <td>{deputy.full_name}</td>
-      <td>{deputy.cpf}</td>
-      <td>{deputy.political_party}</td>
-      <td>0</td>
+      <td className="td-deputy-photo">
+        <img
+          className="img-deputy-photo"
+          src={deputyImageUrl(deputy.registered_id)}
+          alt={deputy.full_name}
+        />
+      </td>
+      <td className="td-deputy-text">{deputy.full_name}</td>
+      <td className="td-deputy-text">{deputy.cpf}</td>
+      <td className="td-deputy-text">{deputy.political_party}</td>
+      <td className="td-deputy-text">0</td>
     </tr>
   )
 }
