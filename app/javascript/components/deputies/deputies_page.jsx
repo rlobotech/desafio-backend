@@ -2,8 +2,9 @@ import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import BootstrapTable from 'react-bootstrap-table-next'
 import DeputiesTable from './deputies_table'
+import Layout from '../layouts/layout'
 
-export default function Deputies() {
+export default function DeputiesPage() {
   const [deputies, setDeputies] = useState([])
 
   useEffect(() => {
@@ -15,6 +16,8 @@ export default function Deputies() {
   }, [])
 
   return (
-    <DeputiesTable deputies={deputies}/>
+    <Layout>
+      <DeputiesTable deputies={deputies}/>
+    </Layout>
   )
 }
