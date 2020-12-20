@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import BootstrapTable from 'react-bootstrap-table-next'
 
-export default function InvoiceTable({ deputy }) {
+export default function InvoicesTable({ invoices }) {
   const columns = [
     {
       dataField: 'description',
@@ -35,16 +35,14 @@ export default function InvoiceTable({ deputy }) {
   ]
 
   return(
-    <div className="container">
-      <BootstrapTable
-        keyField='id'
-        data={deputy.invoices}
-        columns={columns}
-        noDataIndication="Não há Nota Fiscal Cadastrada"
-        striped
-        hover
-        condensed
-      />
-    </div>
+    <BootstrapTable
+      keyField='id'
+      data={invoices}
+      columns={columns}
+      noDataIndication="Não há Nota Fiscal Cadastrada"
+      striped
+      hover
+      condensed
+    />
   )
 }

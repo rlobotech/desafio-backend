@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import BootstrapTable from 'react-bootstrap-table-next'
+import InvoicesTable from '../invoices/invoices_table'
 import '../../../assets/stylesheets/deputies/deputies.css'
 
 export default function DeputiesTable({ deputies }) {
@@ -32,23 +33,22 @@ export default function DeputiesTable({ deputies }) {
     {
       dataField: 'political_party',
       text: 'Partido'
+    },
+    {
+      dataField: 'sum_invoices_net_values',
+      text: 'Gastos Totais'
     }
   ]
 
   const expandRow = () => ({
     renderer: row => (
-      <div>
-        {console.log(row)}
-        <p></p>
-        <p>You can render anything here, also you can add additional data on every row object</p>
-        <p>expandRow.renderer callback will pass the origin row object to you</p>
-      </div>
+      <InvoicesTable invoices={row.invoices} containerOn={false} />
     ),
     showExpandColumn: true
   })
 
   return (
-    <div className="container">
+    <div className="container deputies-container">
       <BootstrapTable
         keyField='id'
         data={deputies}
