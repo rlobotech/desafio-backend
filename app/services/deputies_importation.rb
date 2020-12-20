@@ -91,7 +91,6 @@ class DeputiesImportation < Service
       provider_cnpj: row[CSV_HEADER[:txtCNPJCPF]],
       issue_date: row[CSV_HEADER[:datEmissao]],
       net_value: row[CSV_HEADER[:vlrLiquido]],
-      document_id: row[CSV_HEADER[:ideDocumento]],
       document_url: row[CSV_HEADER[:urlDocumento]],
       deputy_id: all_deputies[row[CSV_HEADER[:cpf]]].id
     }

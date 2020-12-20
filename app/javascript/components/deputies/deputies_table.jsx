@@ -4,7 +4,7 @@ import BootstrapTable from 'react-bootstrap-table-next'
 import InvoicesTable from '../invoices/invoices_table'
 import '../../../assets/stylesheets/deputies/deputies.css'
 
-export default function DeputiesTable({ deputies }) {
+export default function DeputiesTable({ deputies, deputiesGridMessage }) {
   const deputyImageUrl = (registered_id) => {
     if (registered_id === undefined) return ''
     return `http://www.camara.leg.br/internet/deputado/bandep/${registered_id}.jpg`
@@ -40,9 +40,11 @@ export default function DeputiesTable({ deputies }) {
     }
   ]
 
+  const invoicesGridMessage = "Não há Nota Fiscal Cadastrada"
+
   const expandRow = () => ({
     renderer: row => (
-      <InvoicesTable invoices={row.invoices} containerOn={false} />
+      <InvoicesTable invoices={row.invoices} invoicesGridMessage={invoicesGridMessage} />
     ),
     showExpandColumn: true
   })
@@ -56,7 +58,7 @@ export default function DeputiesTable({ deputies }) {
         striped
         hover
         condensed
-        noDataIndication="Não Deputados Cadastrados"
+        noDataIndication={deputiesGridMessage}
         expandRow={expandRow()}
       />
     </div>
