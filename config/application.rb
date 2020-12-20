@@ -15,5 +15,13 @@ module DesafioBackend
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    %w[services].each do |main_folder|
+      Dir.glob("#{config.root}/app/#{main_folder}/**/*")
+         .select { |file| File.directory?(file) }
+         .each do |path|
+        config.paths.add path, eager_load: true
+      end
+    end
   end
 end
