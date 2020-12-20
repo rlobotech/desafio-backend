@@ -18,5 +18,3 @@ export default function Deputies() {
     <DeputiesTable deputies={deputies}/>
   )
 }
-
-

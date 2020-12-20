@@ -62,5 +62,3 @@ export default function DeputiesTable({ deputies }) {
     </div>
   )
 }
-
-
