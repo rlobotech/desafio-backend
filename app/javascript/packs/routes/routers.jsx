@@ -5,7 +5,8 @@ import DeputiesPage from '../../components/deputies/deputies_page'
 export default function Routers({ match }) {
   const toRender = {
     'home': () => <ImportationsPage />,
-    'deputies': () => <DeputiesPage />
+    'deputies': () => <DeputiesPage />,
+    'not_found': () => <h1>Página não encontrada!</h1>
   }
 
   const render = () => {
@@ -14,6 +15,7 @@ export default function Routers({ match }) {
     }
 
     let routePath = match.params.resource
+    if(!Object.keys(toRender).includes(routePath)) return toRender['not_found']()
     if (match.params.id) routePath = `${routePath}/:id`
 
     return toRender[routePath]()

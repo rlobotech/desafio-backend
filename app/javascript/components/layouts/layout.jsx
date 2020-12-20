@@ -25,9 +25,7 @@ export default function Layout({ children }) {
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li><NavLink to='/'>Home</NavLink></li>
-            </ul>
-            <ul className="nav navbar-nav navbar-right">
-              <li></li>
+              <li><NavLink to='/deputies'>Tabela de Deputados</NavLink></li>
             </ul>
           </div>
         </div>
