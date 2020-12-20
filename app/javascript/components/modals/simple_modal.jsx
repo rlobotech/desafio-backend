@@ -4,6 +4,7 @@ import 'reactjs-popup/dist/index.css'
 
 export default function SimpleModal({ modalOpen, modalTitle, modalBody, closeModal }) {
   let pKey = 1
+
   const Modal = () => (
     <Popup
       open={modalOpen}

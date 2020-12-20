@@ -27,9 +27,8 @@ export default function ImportationsPage() {
     if(selectedFile) {
       axios.post("api/v1/deputies/import_csv", data, {
       }).then(res => {
-        setModalBody("Importação Concluída com Sucesso!")
+        setModalBody("Importação Concluída com Sucesso!\nNavegue para Tabela de Deputados a fim de visualizar os resultados.")
       }).catch(resp => {
-        console.log(resp)
         setModalBody(`Ocorreu o seguinte error na importação:\n${resp}\nTalvez seja necessário abrir o arquivo CSV e salvar uma nova cópia.`)
       })
     } else {
