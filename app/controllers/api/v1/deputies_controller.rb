@@ -5,12 +5,12 @@ module Api
 
       # GET /api/v1/deputies
       def index
-        render json: deputies
+        render json: format_json(deputies)
       end
       
       # GET /api/v1/deputies/:id
       def show
-        render json: deputy
+        render json: format_json(deputy)
       end
 
       # POST /api/v1/deputies
@@ -43,6 +43,10 @@ module Api
       end
 
       private
+
+      def format_json(obj)
+        obj.as_json(methods: :sum_invoices_net_values, include: :invoices)
+      end
 
       # Get all deputies
       def deputies
