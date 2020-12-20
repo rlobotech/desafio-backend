@@ -38,6 +38,20 @@ export default function InvoicesTable({ invoices, invoicesGridMessage }) {
     }
   ]
 
+  // extract later to a hook
+  let max = -Infinity
+  let key
+  let i = invoices.forEach(function (v, k) {
+    if (max < +v.net_value) {
+      max = +v.net_value
+      key = k
+    }
+  })
+
+  const rowStyle = (row, rowIndex) => {
+    if (rowIndex == key) return { backgroundColor: '#ed9898' }
+  }
+
   return(
     <div className="invoice-table">
       <BootstrapTable
@@ -48,6 +62,7 @@ export default function InvoicesTable({ invoices, invoicesGridMessage }) {
         striped
         hover
         condensed
+        rowStyle={ rowStyle }
       />
     </div>
   )
