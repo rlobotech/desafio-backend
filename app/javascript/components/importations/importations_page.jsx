@@ -7,14 +7,6 @@ import '../../../assets/stylesheets/importations/importations.css'
 export default function ImportationsPage() {
   const [selectedFile, setSelectedFile] = useState(null)
 
-  // useEffect(() => {
-  //   axios.get('/api/v1/deputies')
-  //   .then(resp => {
-  //     setDeputies(resp.data)
-  //   })
-  //   .catch(resp => console.log(resp))
-  // }, [])
-
   const onChangeHandler = event => {
     console.log(event.target.files[0])
     setSelectedFile(event.target.files[0])
@@ -23,7 +15,7 @@ export default function ImportationsPage() {
   const onClickHandler = () => {
     const data = new FormData()
     data.append('file', selectedFile)
-    axios.post("api/v1/deputies/importations", data, {
+    axios.post("api/v1/deputies/import_csv", data, {
       
     }).then(res => {
       console.log(res.statusText)
