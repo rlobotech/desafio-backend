@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Routers from './routers'
 
 export default function App() {
@@ -8,22 +8,24 @@ export default function App() {
   }
 
   return (
-    <Switch>
-      <Route
-        exact
-        path="/"
-        render={({ match }) => renderPage(match)}
-      />
-      <Route
-        exact
-        path='/:resource'
-        render={({ match }) => renderPage(match)}
-      />
-      <Route
-        exact
-        path='/:resource/:id'
-        render={({ match }) => renderPage(match)}
-      />
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={({ match }) => renderPage(match)}
+        />
+        <Route
+          exact
+          path='/:resource'
+          render={({ match }) => renderPage(match)}
+        />
+        <Route
+          exact
+          path='/:resource/:id'
+          render={({ match }) => renderPage(match)}
+        />
+      </Switch>
+    </BrowserRouter>
   )
 }

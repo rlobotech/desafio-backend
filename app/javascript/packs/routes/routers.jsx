@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import ImportationsPage from '../../components/importations/importations_page'
 import DeputiesPage from '../../components/deputies/deputies_page'
 
@@ -18,11 +18,10 @@ export default function Routers({ match }) {
 
     return toRender[routePath]()
   }
-  const [page] = useState(render())
 
   return (
     <Fragment>
-      {page}
+      {render()}
     </Fragment>
   )
 }
