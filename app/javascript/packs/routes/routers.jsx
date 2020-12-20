@@ -1,10 +1,11 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import Deputies from '../../components/deputies/deputies'
+import ImportationsPage from '../../components/importations/importations_page'
+import DeputiesPage from '../../components/deputies/deputies_page'
 
 export default function Routers({ match }) {
   const toRender = {
-    'home': () => <Deputies />,
-    'deputies': () => <Deputies />
+    'home': () => <ImportationsPage />,
+    'deputies': () => <DeputiesPage />
   }
 
   const render = () => {

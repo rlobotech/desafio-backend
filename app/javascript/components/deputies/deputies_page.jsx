@@ -4,7 +4,7 @@ import BootstrapTable from 'react-bootstrap-table-next'
 import DeputiesTable from './deputies_table'
 import Layout from '../layouts/layout'
 
-export default function Deputies() {
+export default function DeputiesPage() {
   const [deputies, setDeputies] = useState([])
 
   useEffect(() => {

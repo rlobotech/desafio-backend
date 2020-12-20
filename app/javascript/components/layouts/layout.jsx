@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function Layout({ children }) {
   return (
@@ -6,7 +7,14 @@ export default function Layout({ children }) {
       <nav className="navbar navbar-default">
         <div className="container">
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button 
+              type="button"
+              className="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#navbar"
+              aria-expanded="false"
+              aria-controls="navbar"
+            >
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
@@ -16,7 +24,7 @@ export default function Layout({ children }) {
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li></li>
+              <li><NavLink to='/'>Home</NavLink></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li></li>
