@@ -1,12 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import Deputies from '../../components/deputies/deputies'
-import Deputy from '../../components/deputies/deputy'
 
 export default function Routers({ match }) {
   const toRender = {
     'home': () => <Deputies />,
-    'deputies': () => <Deputies />,
-    'deputies/:id': () => <Deputy match={match}/>
+    'deputies': () => <Deputies />
   }
 
   const render = () => {
