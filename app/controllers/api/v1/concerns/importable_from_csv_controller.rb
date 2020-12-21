@@ -11,6 +11,10 @@ module Api::V1::Concerns
       FileUtils.cp(file.path, storage_path)
 
       args = { storage_path: storage_path }
+
+      render json: {}
+
+      # to put to run in background job later
       DeputiesImportation.call(args)
     end
   end

@@ -27,7 +27,7 @@ export default function ImportationsPage() {
     if(selectedFile) {
       axios.post("api/v1/deputies/import_csv", data, {
       }).then(res => {
-        setModalBody("Importação Concluída com Sucesso!\nNavegue para Tabela de Deputados a fim de visualizar os resultados.")
+        setModalBody("Upload do arquivo concluído com sucesso!\nO processamento das informações leva de 2 a 5 minutos.\nApós tal período, verifique a Tabela de Deputados.")
       }).catch(resp => {
         setModalBody(`Ocorreu o seguinte error na importação:\n${resp}\nTalvez seja necessário abrir o arquivo CSV e salvar uma nova cópia.`)
       })
