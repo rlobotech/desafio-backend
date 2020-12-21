@@ -34,9 +34,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
-  gem 'rspec-rails', '~> 4.0.1'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
+
+  # unit test
+  gem 'rspec-rails'
 end
 
 group :development do
