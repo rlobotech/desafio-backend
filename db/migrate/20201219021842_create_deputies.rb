@@ -4,7 +4,7 @@ class CreateDeputies < ActiveRecord::Migration[6.0]
       t.string :full_name
       t.string :cpf, index: true
       t.string :political_party
-      t.integer :registered_id  
+      t.integer :registered_id
       t.timestamps
     end
   end

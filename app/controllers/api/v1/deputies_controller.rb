@@ -18,7 +18,7 @@ class Api::V1::DeputiesController < Api::V1::ApiController
     deputy = Deputy.new(allowed_list_params)
 
     if deputy.save
-      render json: deputy
+      render json: deputy, status: 201
     else
       render json: errors(deputy), status: 422
     end
