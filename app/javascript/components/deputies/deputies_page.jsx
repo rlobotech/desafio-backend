@@ -13,7 +13,7 @@ export default function DeputiesPage() {
     .then(resp => {
       setDeputies(resp.data)
       if(resp.data.length == 0) {
-        setDeputiesGridMessage("Não Deputados Cadastrados")
+        setDeputiesGridMessage("Não há Deputados Cadastrados")
       }
     })
     .catch(resp => console.log(resp))

@@ -49,7 +49,7 @@ export default function InvoicesTable({ invoices, invoicesGridMessage }) {
   })
 
   const rowStyle = (row, rowIndex) => {
-    if (rowIndex == key) return { backgroundColor: '#ed9898' }
+    if (rowIndex == key) return { backgroundColor: '#e4eeff' }
   }
 
   return(

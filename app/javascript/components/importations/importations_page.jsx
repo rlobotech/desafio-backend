@@ -18,7 +18,7 @@ export default function ImportationsPage() {
   const closeModal = () => setModalOpen(false)
 
   const onClickHandler = () => {
-    setModalBody("Importação dos deputados com suas notas fiscais em andamento.\nEste processo pode levar alguns minutos.\nAguarde!")
+    setModalBody("Importação dos deputados com suas notas fiscais em andamento.\nEste processo pode levar alguns minutos.\nPor favor, aguarde.")
     setModalOpen(true)
 
     const data = new FormData()
