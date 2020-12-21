@@ -16,9 +16,6 @@ module DesafioBackend
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # to be setted later
-    config.secret_key_base = 'blipblapblup'
-
     %w[services].each do |main_folder|
       Dir.glob("#{config.root}/app/#{main_folder}/**/*")
          .select { |file| File.directory?(file) }
