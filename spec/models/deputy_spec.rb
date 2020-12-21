@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Deputy, type: :model do
   it 'should create a deputy' do
-    FactoryBot.create(:deputy, cpf: 'some_cpf')
-    expect(Deputy.count).to be_eql(1)  
+    FactoryBot.create(:deputy)
+    expect(Deputy.count).to be_eql(1)
   end
 
   it 'should not create a deputy' do
@@ -15,15 +15,15 @@ RSpec.describe Deputy, type: :model do
   end
 
   it 'should not create a deputy with a used cpf' do
-    FactoryBot.create(:deputy, cpf: 'some_cpf')
-    item = FactoryBot.build(:deputy, cpf: 'some_cpf')
+    FactoryBot.create(:deputy)
+    item = FactoryBot.build(:deputy)
     expect { item.save }.to_not change(Deputy, :count)
     expect(item.errors[:cpf]).to_not be_empty
   end
 
   describe 'with one deputy' do
     before do
-      @item = FactoryBot.create(:deputy, cpf: 'some_cpf')
+      @item = FactoryBot.create(:deputy)
     end
 
     it { expect(@item.sum_invoices_net_values).to be_eql(0) }
